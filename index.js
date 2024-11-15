@@ -1,37 +1,75 @@
-// require('./file1')
-// require('./file2')
-// require('./file3')
-// console.log("hello world11")
-// common js modules
-//  var imp=require('./file1')
-//  console.log(imp)
-//  console.log(imp.a,imp.b)
 
 
-// importing through destructrinbg
-// const {a,b,c}=require("./file1")
-// console.log(a,b,c)
+const http=require('http')
+const port=3200
 
-// ES6 modules
-
-// import {a,b} from './file1.js'
-// console.log(a,b)
-
-// importing functions in node js
-// const {a,b,c,sample}=require("./file1")
-// sample()
-
-
-// server creation
-
-const http=require("http");
-const port=3100
 const server=http.createServer((req,res)=>{
-
-    res.write("Welcome to node");
-    res.end("hello")
+    
+    // res.writeHead(200,{"content-type":"text/html"})
+    // res.writeHead(200,{"content-type":"text/xml"})
+    res.writeHead(404,{"content-type":"application/json"})
+    res.write("Hello")
+    res.end()
 })
 
-server.listen(port,()=>{
-    console.log(`server is running at ${port}`)
-})
+// server.listen(port,()=>{
+//     console.log(`server is runnning at ${port}`)
+// })
+
+//To convet the in data form of different data types:
+
+// const http=require('http')
+// const port=3200
+// const data=["nodejs"]
+// const server=http.createServer((req,res)=>{
+    
+
+//     res.writeHead(200,{"content-type":"application/json"})
+//     res.write(JSON.stringify(data))
+//     res.end()
+// })
+
+// server.listen(port,()=>{
+//     console.log("server is running")
+// })
+//["nodejs"]
+
+//{data:["nodejs"]}
+
+// const http=require("http")
+// const port=3200
+// const data=["nodejs"]
+
+// const server=http.createServer((req,res)=>{
+
+//     res.writeHead(200,{"content-type":"application/json"})
+//     res.write(
+//         JSON.stringify({statusMessage:"data retrived succesfully",data:data}))
+//     res.end()
+// })
+
+// server.listen(port,()=>{
+//     console.log("server is running")
+// })
+
+
+// const http=require("http")
+// const port=3200
+// const data=["nodejs"]
+
+// const userDetails={u_id:258,username:"john",email:"john@123"};
+
+
+// const server=http.createServer((req,res)=>{
+
+//     res.writeHead(200,{"content-type":"application/json"})
+//     res.write(
+//         JSON.stringify({statusMessage:"user details",data:userDetails}))
+//     res.end()
+// })
+
+// server.listen(port,()=>{
+//     console.log("server is running")
+// })
+
+
