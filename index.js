@@ -2,7 +2,6 @@
 
 const http=require('http')
 const port=3200
-
 const server=http.createServer((req,res)=>{
     
     // res.writeHead(200,{"content-type":"text/html"})
@@ -12,9 +11,18 @@ const server=http.createServer((req,res)=>{
     res.end()
 })
 
-// server.listen(port,()=>{
-//     console.log(`server is runnning at ${port}`)
-// })
+server.listen(port,()=>{
+    console.log(`server is runnning at ${port}`)
+})
+
+
+
+
+
+
+
+
+
 
 //To convet the in data form of different data types:
 
