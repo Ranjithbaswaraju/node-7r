@@ -17,6 +17,11 @@ server.listen(port,()=>{
     console.log("server is running")
 })
 
+
+
+
+
+
 // OUTPUT:
 // {
 //     "statusMessage": "user details",
