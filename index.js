@@ -1,23 +1,53 @@
 
 
-const http=require('http')
-const port=3200
-const server=http.createServer((req,res)=>{
+// const http=require('http')
+// const port=3200
+// const server=http.createServer((req,res)=>{
     
-    // res.writeHead(200,{"content-type":"text/html"})
-    // res.writeHead(200,{"content-type":"text/xml"})
-    res.writeHead(404,{"content-type":"application/json"})
-    res.write("Hello")
-    res.end()
+//     // res.writeHead(200,{"content-type":"text/html"})
+//     // res.writeHead(200,{"content-type":"text/xml"})
+//     res.writeHead(404,{"content-type":"application/json"})
+//     res.write("Hello")
+//     res.end()
+// })
+
+// server.listen(port,()=>{
+//     console.log(`server is runnning at ${port}`)
+// })
+
+
+
+const http=require('http')
+// const { json } = require('stream/consumers')
+const port=3100
+
+const data={
+  name:'car1',
+  color:"clr1",
+  price:"price1"
+}
+
+const ops=[]
+
+for(let i=0;i<5;i++){
+  ops.push(data)
+}
+
+
+
+const server=http.createServer((req,res)=>{
+  res.writeHead(200,{'content-type':'application/json'})
+
+    res.write(JSON.stringify(ops))
+
+  res.end()
+
+
 })
 
 server.listen(port,()=>{
-    console.log(`server is runnning at ${port}`)
+  console.log(`Server is running at ${port}`)
 })
-
-
-
-
 
 
 
