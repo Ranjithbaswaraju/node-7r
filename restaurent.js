@@ -27,7 +27,7 @@ const server=http.createServer((req,res)=>{
             res.end()
         }
         else{
-            res.write("The mentioned item is niot available")
+            res.write("The mentioned item is not available")
             res.end()
         }
     }

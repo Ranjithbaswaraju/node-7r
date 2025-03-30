@@ -43,39 +43,39 @@
 // })
 
 // SHOWING OUTPUT IN THE DIFFECRENT FORMATS LIKE OBJECTS,JSON,ARRAY ETC..
-// const http=require("http")
-// const port=3100
+const http=require("http")
+const port=3100
 
-// const server=http.createServer((req,res)=>{
+const server=http.createServer((req,res)=>{
 
-//     if(req.url=="/home"){
-//         res.writeHead(200,{"content-type":"application/json"})
-//         res.write(JSON.stringify({"message":"welcome to home page"}))
+    if(req.url=="/home"){
+        res.writeHead(200,{"content-type":"application/json"})
+        res.write(JSON.stringify({"message":"welcome to home page"}))
 
-//         res.end()
-//     }
-//     else if(req.url=="/contacts"){
-//         res.writeHead(200,{"content-type":"application/json"})
-//         res.write(JSON.stringify({"message":"welcome to contacts page"}))
-//         res.end()
-//     }
-//     else if(req.url=="/prices"){
-//         res.writeHead(200,{"content-type":"application/json"})
-//         res.write(JSON.stringify({"message":"welcome to prices page"}))
+        res.end()
+    }
+    else if(req.url=="/contacts"){
+        res.writeHead(200,{"content-type":"application/json"})
+        res.write(JSON.stringify({"message":"welcome to contacts page"}))
+        res.end()
+    }
+    else if(req.url=="/prices"){
+        res.writeHead(200,{"content-type":"application/json"})
+        res.write(JSON.stringify({"message":"welcome to prices page"}))
 
-//         res.end()
-//     }
-//     else{
-//         res.write(JSON.stringify({"message":"page is not found"}))
-//         res.end()
-//     }
+        res.end()
+    }
+    else{
+        res.write(JSON.stringify({"message":"page is not found"}))
+        res.end()
+    }
 
-// })
-// server.listen(port,()=>{
-//     console.log("sever is up")
-// })
+})
+server.listen(port,()=>{
+    console.log("sever is up")
+})
 
-// CALCULATING queryparms to get the end points
+CALCULATING queryparms to get the end points
 
 const http = require("http");
 const port = 3100;
