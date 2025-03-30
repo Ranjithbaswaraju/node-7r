@@ -12,19 +12,35 @@ const server=http.createServer((req,res)=>{
     
     let id=pathArray[1]
     console.log(id)
-
-    const data=books.find((x)=>(x.id==id))
-    console.log(data)
-
-    if(data){
-        res.writeHead(200,'content-type:application/json');
-        res.write(JSON.stringify(data));
-    }else{
-        res.writeHead(404,'content-type:application/json');
-        res.write("book not found")
-
+    if(books.name===""){
         
+        res.writeHead(200,'content-type:application/json');
+        res.write(JSON.stringify({message:"enter correctly"}));
     }
+    else if(!isNaN(books.name)){
+        res.writeHead(404,'content-type:application/json');
+        res.write("enter a valid book name")
+    }
+
+    else{
+        const data=books.find((x)=>(x.id===id))
+        console.log(data)
+
+        if(data){
+            res.writeHead(200,'content-type:application/json');
+            res.write(JSON.stringify(data));
+        }
+
+        else{
+            res.writeHead(404,'content-type:application/json');
+            res.write("book not found")
+    
+            
+        }
+    }
+  
+
+    
 
     res.end()
 })
