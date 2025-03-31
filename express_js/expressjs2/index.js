@@ -3,47 +3,47 @@ const express=require("express")
 const app=express();
 const port=9999
 
-app.use("/admin",(req,res,next)=>{
-    if(req.query.user==="admin"){
+const adminHandler=(req,res,next)=>{
+    if(req.query.user=='admin'){
         next()
     }
     else{
-        res.status(401).send("unautherized access")
+        res.status(401).send("unauthorized")
     }
-})
+}
 
-app.use("/user",(req,res,next)=>{
+const userHandler=(req,res,next)=>{
     if(req.query.user=='user'){
         next()
     }
     else{
-        res.status(401).send("unautherized access")
+        res.status(401).send("unauthorized")
     }
-})
+}
 app.get("/home",(req,res)=>{
     res.send("Welcome to home page")
 })
 
-app.get("/admin/home",(req,res)=>{
+app.get("/admin/home",adminHandler,(req,res)=>{
     res.send("Welcome to admin home page")
 })
 
-app.get("/admin/contact",(req,res)=>{
+app.get("/admin/contact",adminHandler,(req,res)=>{
     res.send("Welcome admin to contact page")
 })
-app.get("/admin/products",(req,res)=>{
+app.get("/admin/products",adminHandler,(req,res)=>{
     res.send("Welcome admin to products page")
 })
 
-app.get("/user/home",(req,res)=>{
+app.get("/user/home",userHandler,(req,res)=>{
     res.send("Welcome to user home page")
 })
 
-app.get("/user/contact",(req,res)=>{
+app.get("/user/contact",userHandler,(req,res)=>{
     res.send("Welcome user to contact page")
 })
 
-app.get("/user/products",(req,res)=>{
+app.get("/user/products",userHandler,(req,res)=>{
     res.send("Welcome user to products page")
 })
 app.listen(port,()=>{
