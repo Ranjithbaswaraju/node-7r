@@ -1,59 +1,27 @@
-
-
-// const express=require('express');
-// //Imported express
-// const app=express();
-// //Imported express to app
-
-
-
-
-// const port =3100
-// app.get("/",(req,res)=>{res.send("Hello world")});
-// app.get("/hello",(req,res)=>{res.send("Welcome to hello")})
-
-// app.get("/home",(req,res)=>{res.send("Welcome to home page")})
-
-
-// app.post("/aboutus",(req,res)=>{res.send("about us page")})
-
-// app.post("/mobilepage",(req,res)=>{res.send("welcome to mobile page")})
-
-// app.delete("/bike",(req,res)=>{res.send("welcome to bike page")})
-// app.listen(port,()=>{
-//     console.log("server running")
-// })
-
-
-
+const port=3100;
 const express=require('express');
-//Imported express
 const app=express();
-//Imported express to app
 
-
-app.use((req,res,next)=>{
-    if(true){
-        next()
-
-    }
-    else{
-        res.send("You are not allowed")
-    }
+app.get("/home",(req,res)=>{
+    res.send({"name":"john","city":"cherial"})
 })
 
-const port =3100
-app.get("/",(req,res)=>{res.send("Hello world")});
-app.get("/hello",(req,res)=>{res.send("Welcome to hello")})
+app.get("/contacts",(req,res)=>{
+    res.send({"name":"ranjith","phone":"991235161"})
+})
 
-app.get("/home",(req,res)=>{res.send("Welcome to home page")})
+app.get("/ab?c",(req,res)=>{res.send("Hello world")})
 
+app.get("/ab+c",(req,res)=>{res.send('bye')})
 
-app.post("/aboutus",(req,res)=>{res.send("about us page")})
+app.get(/.script$/,(req,res)=>{
+    console.log(req.query)
 
-app.post("/mobilepage",(req,res)=>{res.send("welcome to mobile page")})
-
-app.delete("/bike",(req,res)=>{res.send("welcome to bike page")})
+    let name=req.query.name;
+    let city=req.query.city
+    res.send({"name":name,"greeting":`hello ${name}`,"city":city})
+})
+app.get("ab*c",(req,res)=>{res.send("Welcome")})
 app.listen(port,()=>{
-    console.log("server running")
+    console.log(`server is running at ${port}`)
 })
