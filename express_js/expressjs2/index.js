@@ -2,24 +2,8 @@
 const express=require("express")
 const app=express();
 const port=9999
+const{userHandler,adminHandler}=require("./handler.js")
 
-const adminHandler=(req,res,next)=>{
-    if(req.query.user=='admin'){
-        next()
-    }
-    else{
-        res.status(401).send("unauthorized")
-    }
-}
-
-const userHandler=(req,res,next)=>{
-    if(req.query.user=='user'){
-        next()
-    }
-    else{
-        res.status(401).send("unauthorized")
-    }
-}
 app.get("/home",(req,res)=>{
     res.send("Welcome to home page")
 })
